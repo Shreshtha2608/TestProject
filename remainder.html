@@ -2,11 +2,31 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <style>
+            .chnagecolor{
+              display: table-cell;
+                border: 2px solid black;
+                padding: 15px;
+            }
+        </style>
     </head>
     <body>
+        <div class="chnagecolor"> Div 1
+            <div class="chnagecolor">Div 2
+                <div class="chnagecolor">Div 3
+                
+                </div>
+            </div>
+        </div>
         <script>
-            function remainder(a,b){
-                return a%b;
+            var elem = document.getElementsByTagName("div");
+            console.log(elem);
+            for(let i=0;i<elem.length;i++){
+                elem[i].onclick = function(){
+                    this.style.borderColor = "red";
+                    alert(this.innerHTML);
+                    event.stopPropagation();
+                }
             }
         </script>
     </body>
